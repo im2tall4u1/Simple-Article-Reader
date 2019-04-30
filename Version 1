@@ -1,0 +1,11 @@
+import bs4
+from bs4 import BeautifulSoup
+import requests
+url = 'https://www.nytimes.com/2019/04/25/sports/lonzo-ball-fraud-lakers.html'
+r = requests.get(url)
+html = r.text
+soup = BeautifulSoup(html, 'lxml')
+article = [e.get_text() for e in soup.find_all('p')]
+print(article)
+
+
